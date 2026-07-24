@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="和会は、電気工事を通じて安全で快適な環境づくりを支える会社です。丁寧な施工と誠実な対応で、暮らしと事業の電気を支えます。">
   <title>和会 | 電気を笑顔に変える会社</title>
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -23,11 +23,19 @@
         <span class="brand-copy">電気を笑顔に変える会社</span>
       </span>
     </a>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="メニューを開閉">
+    <label class="menu-button" for="nav-toggle" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
     <nav class="global-nav" aria-label="主要ナビゲーション">
       <a href="#service">事業内容</a>
-      <a href="#strength">選ばれる理由</a>
+      <a href="#philosophy">経営理念</a>
+      <a href="#message">代表挨拶</a>
       <a href="#flow">施工の流れ</a>
       <a href="#company">会社概要</a>
+      <a class="mobile-contact" href="#contact">お問い合わせ</a>
     </nav>
     <a class="header-cta" href="#contact">お問い合わせ</a>
   </header>
@@ -36,8 +44,8 @@
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-inner">
-        <p class="eyebrow">Electrical Work / Safety / Trust</p>
-        <h1>電気工事を、<br>安心と笑顔に<span class="mobile-break"><br></span>変える。</h1>
+        <p class="eyebrow">電気工事・安全管理・設備改修</p>
+        <h1>電気工事で、<br>安心と笑顔に変える。</h1>
         <p class="hero-lead">
           和会は、新しい挑戦に欠かせない電気工事を丁寧に支えます。
           火災などの危険から皆さまの安全を守り、暮らしと事業に良い循環を生み出します。
@@ -49,29 +57,18 @@
       </div>
       <div class="hero-panel" aria-label="和会の特徴">
         <div>
-          <span class="metric">Safety</span>
+          <span class="metric">安全施工</span>
           <p>安全を第一にした確実な施工</p>
         </div>
         <div>
-          <span class="metric">Care</span>
+          <span class="metric">丁寧対応</span>
           <p>小さな工事も丁寧に対応</p>
         </div>
         <div>
-          <span class="metric">Local</span>
+          <span class="metric">地域密着</span>
           <p>地域に根ざした誠実な仕事</p>
         </div>
       </div>
-    </section>
-
-    <section class="intro section">
-      <div class="section-heading">
-        <p class="eyebrow">Our Promise</p>
-        <h2>一つひとつの工事に、まっすぐ向き合う。</h2>
-      </div>
-      <p>
-        電気は、日々の暮らしや事業を動かす大切な基盤です。和会は見えない部分まで丁寧に確認し、
-        使う人が安心できる状態でお引き渡しすることを大切にしています。
-      </p>
     </section>
 
     <section id="service" class="section section-dark">
@@ -84,42 +81,97 @@
           <span class="card-number">01</span>
           <h3>住宅・店舗の電気工事</h3>
           <p>照明、コンセント、分電盤まわりなど、暮らしや店舗運営に必要な電気設備を整えます。</p>
+          <span class="service-tag">照明 / コンセント / 分電盤</span>
         </article>
         <article class="service-card">
           <span class="card-number">02</span>
           <h3>改修・増設工事</h3>
           <p>使い方の変化に合わせて、既存設備の見直しや増設を安全性に配慮して行います。</p>
+          <span class="service-tag">増設 / 改修 / レイアウト変更</span>
         </article>
         <article class="service-card">
           <span class="card-number">03</span>
           <h3>点検・トラブル対応</h3>
           <p>不具合の原因を確認し、火災や事故につながるリスクを抑えるための対応を提案します。</p>
+          <span class="service-tag">不具合確認 / 安全点検</span>
         </article>
       </div>
     </section>
 
-    <section id="strength" class="section strength">
+    <section id="philosophy" class="section philosophy">
       <div class="section-heading">
-        <p class="eyebrow">Strength</p>
-        <h2>選ばれる理由</h2>
+        <p class="eyebrow">Philosophy</p>
+        <h2>経営理念</h2>
       </div>
-      <div class="strength-layout">
-        <div class="strength-image">
-          <img src="assets/hero-electrical.png" alt="電気設備の施工イメージ">
+      <div class="philosophy-layout">
+        <article class="philosophy-main">
+          <span class="philosophy-label">使命</span>
+          <h3>人々の暮らしを支え、<br>快適な住環境を創造する</h3>
+        </article>
+        <article class="philosophy-vision">
+          <span class="philosophy-label">目指す姿</span>
+          <h3>生成AIやIT技術を活用し、電気工事業の新しいスタンダードを創る</h3>
+          <p>
+            私たちは、最新のテクノロジーを活用して業務の効率化を図り、
+            現場でのお客様とのコミュニケーションと施工に最大限の力を注ぎます。
+            技術力とホスピタリティを両立し、「快適な住環境」を提供し続けます。
+          </p>
+        </article>
+        <div class="value-list" aria-label="大切にする価値観">
+          <article>
+            <span>01</span>
+            <h3>自分らしく生きよう</h3>
+            <p>自分を大切にし、相手も尊重しよう。違いを受け入れ、多様性を楽しもう。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>感謝</h3>
+            <p>「ありがとう」を大切にしよう。感謝の気持ちが信頼に繋がります。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>無理せずにワークしよう</h3>
+            <p>仕事も人生も、無理せず。笑顔でいることが、最高のパフォーマンスにつながります。</p>
+          </article>
         </div>
-        <div class="strength-list">
-          <article>
-            <h3>見えない場所ほど丁寧に</h3>
-            <p>配線や接続など、完成後には見えにくい部分こそ施工品質にこだわります。</p>
-          </article>
-          <article>
-            <h3>安全を前提にした提案</h3>
-            <p>使いやすさだけでなく、火災や漏電リスクを抑える視点で工事内容を考えます。</p>
-          </article>
-          <article>
-            <h3>話しやすく、頼みやすい対応</h3>
-            <p>専門用語に偏らず、状況や必要な工事を分かりやすくお伝えします。</p>
-          </article>
+      </div>
+    </section>
+
+    <section id="message" class="section message">
+      <div class="section-heading">
+        <p class="eyebrow">Message</p>
+        <h2>代表挨拶</h2>
+      </div>
+      <div class="message-layout">
+        <figure class="message-photo">
+          <img src="assets/representative-placeholder.svg" alt="代表取締役 笹森 将希 写真">
+          <figcaption>代表取締役 笹森 将希</figcaption>
+        </figure>
+        <div class="message-body">
+          <h3>和会（わかい）に込めた3つの意味</h3>
+          <div class="meaning-grid" aria-label="和会に込めた意味">
+            <article>
+              <h4>和会</h4>
+              <p>日本らしい伝統文化、そして暖かさ</p>
+            </article>
+            <article>
+              <h4>わかい</h4>
+              <p>柔軟な発想、エネルギッシュ、無限の可能性</p>
+            </article>
+            <article>
+              <h4>和解</h4>
+              <p>小さなプライドを捨て、大きな勇気を持つこと</p>
+            </article>
+          </div>
+          <div class="message-text">
+            <p>私たちは、「電気」という目に見えないものに価値を加え、お客様にとって最適な環境をご提供いたします。</p>
+            <p>和を尊重し、協力の精神を大切にすることで、共に成長し続ける企業を目指します。</p>
+            <p>多くの方々とのご縁に感謝し、日々努力を重ねてまいります。少しでも皆さまのお役に立てることを心より願っております。</p>
+            <p>職人・施工管理を経験してきまして、身近な見積から設計・図面・電力申請、そして工事の完工まで対応することができます。</p>
+            <p>電気工事という仕事を通して人と繋がり、<strong>人の役に立つ</strong>ことが今の目標です。</p>
+            <p>皆様の貴重な時間を大切に。私たちの想いを形に、言葉を行動に。どうぞよろしくお願い申し上げます。</p>
+          </div>
+          <p class="message-sign">代表取締役　笹森 将希</p>
         </div>
       </div>
     </section>
@@ -154,28 +206,77 @@
     </section>
 
     <section id="company" class="section company">
-      <div class="company-copy">
+      <div class="section-heading company-heading">
         <p class="eyebrow">Company</p>
-        <h2>個人事業：和会</h2>
-        <p>
-          新しいことを始める際に欠かせない電気工事を任せていただけることに感謝し、
-          今日も一つひとつの現場に誠実に向き合います。
-        </p>
+        <h2>会社概要</h2>
       </div>
-      <dl class="company-info">
-        <div>
-          <dt>屋号</dt>
-          <dd>和会</dd>
+      <div class="company-layout">
+        <dl class="company-info">
+          <div>
+            <dt>社名</dt>
+            <dd>和会株式会社</dd>
+          </div>
+          <div>
+            <dt>代表取締役</dt>
+            <dd>笹森 将希</dd>
+          </div>
+          <div>
+            <dt>所在地</dt>
+            <dd>〒276-0015 千葉県八千代市米本1221-31</dd>
+          </div>
+          <div>
+            <dt>事業内容</dt>
+            <dd>電気工事業</dd>
+          </div>
+          <div>
+            <dt>設立日</dt>
+            <dd>2026年7月1日</dd>
+          </div>
+          <div>
+            <dt>対応エリア</dt>
+            <dd>千葉県</dd>
+          </div>
+          <div>
+            <dt>電話番号</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>メールアドレス</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>営業時間</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>定休日</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>登録・許可</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>保有資格</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>対応工事</dt>
+            <dd>&nbsp;</dd>
+          </div>
+          <div>
+            <dt>主要取引先</dt>
+            <dd>&nbsp;</dd>
+          </div>
+        </dl>
+        <div class="company-map" aria-label="和会株式会社の所在地">
+          <iframe
+            src="https://maps.google.com/maps?q=loc:35.761181,140.116257&z=17&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="和会株式会社 所在地 Googleマップ"></iframe>
         </div>
-        <div>
-          <dt>事業内容</dt>
-          <dd>電気工事、設備改修、点検・相談対応</dd>
-        </div>
-        <div>
-          <dt>Web</dt>
-          <dd>www.wakai119.com</dd>
-        </div>
-      </dl>
+      </div>
     </section>
 
     <section id="contact" class="contact">
@@ -189,8 +290,36 @@
   </main>
 
   <footer class="site-footer">
-    <p>個人事業：和会</p>
-    <p>Copyright &copy; 和会. All Rights Reserved.</p>
+    <p><a href="privacy.html">プライバシーポリシー</a></p>
+    <p>Copyright &copy; 和会株式会社. All Rights Reserved.</p>
   </footer>
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const siteHeader = document.querySelector('.site-header');
+
+    document.querySelectorAll('.global-nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (navToggle) {
+          navToggle.checked = false;
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!navToggle || !siteHeader || !navToggle.checked) {
+        return;
+      }
+
+      if (!siteHeader.contains(event.target)) {
+        navToggle.checked = false;
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navToggle) {
+        navToggle.checked = false;
+      }
+    });
+  </script>
 </body>
 </html>
