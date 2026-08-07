@@ -76,8 +76,14 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 32px;
   margin-right: auto;
+}
+
+.brand-text {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 32px;
 }
 
 .brand-mark {
@@ -102,28 +108,25 @@ a {
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.18));
 }
 
-.brand-name,
-.brand-copy {
+.brand-name {
   display: block;
   line-height: 1.35;
 }
 
 .brand-name {
-  font-size: 20px;
+  font-family: "Zen Old Mincho", "Noto Serif JP", serif;
+  font-size: 34px;
   font-weight: 900;
-  letter-spacing: 0;
-}
-
-.brand-copy {
-  color: var(--muted);
-  font-size: 12px;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .global-nav {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   color: #4a443e;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -145,7 +148,7 @@ a {
   color: #111;
   background: var(--orange);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -1259,12 +1262,21 @@ main:not(.sub-page) .section-heading h2 {
     padding: 6px;
   }
 
+  .brand-name {
+    font-size: 29px;
+  }
+
+  .brand,
+  .brand-text {
+    gap: 16px;
+  }
+
   .header-cta {
     display: none;
   }
 
   .global-nav {
-    font-size: 13px;
+    font-size: 17px;
   }
 
   .hero {
@@ -1336,4 +1348,15 @@ main:not(.sub-page) .section-heading h2 {
     gap: 12px;
     font-size: 11px;
   }
+}
+
+@media (max-width: 360px) {
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-text {
+    gap: 8px;
+  }
+
 }
