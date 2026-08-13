@@ -351,27 +351,41 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  body {
+    background: var(--paper);
+  }
+
   .page-shell {
-    display: block;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
     width: 100%;
     height: auto;
     min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
     border: 0;
   }
 
   main {
-    display: block;
+    display: grid;
+    grid-template-rows: minmax(320px, 1fr) auto;
+    min-height: 0;
   }
 
   .site-header {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
     min-height: 82px;
-    padding: 13px 20px;
+    padding: 14px 18px 16px;
+  }
+
+  .brand {
+    gap: 10px;
   }
 
   .brand img {
-    width: 44px;
+    width: 40px;
   }
 
   .brand strong {
@@ -384,75 +398,99 @@ h1 {
 
   .header-status {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) 126px;
+    align-items: center;
     width: 100%;
-    gap: 8px;
-    margin-top: 11px;
-    padding: 11px 0 0;
+    gap: 14px;
+    margin-top: 13px;
+    padding: 13px 0 0;
     border-top: 1px solid var(--line);
     border-left: 0;
   }
 
   .header-status strong {
-    font-size: 0.82rem;
-    line-height: 1.45;
+    font-size: 0.74rem;
+    line-height: 1.55;
   }
 
   .status-copy {
     display: grid;
     width: 100%;
     max-width: none;
-    min-height: 44px;
+    min-height: 42px;
   }
 
   .contact-button.header-contact {
-    width: 100%;
+    width: 126px;
     min-width: 0;
-    min-height: 48px;
-    padding: 0 12px;
-    font-size: 0.84rem;
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 0.78rem;
   }
 
   .hero {
-    padding: 55px 20px 64px;
+    min-height: 320px;
+    align-content: center;
+    padding: 44px 20px 48px;
   }
 
   .eyebrow {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
+    font-size: 0.65rem;
+  }
+
+  .eyebrow span {
+    width: 38px;
   }
 
   h1 {
-    font-size: clamp(1.75rem, 8.8vw, 3rem);
-    line-height: 1.42;
+    font-size: clamp(1.7rem, 8.5vw, 2.5rem);
+    line-height: 1.48;
   }
 
   .lead {
-    margin-top: 24px;
-    line-height: 1.9;
+    margin-top: 20px;
+    font-size: clamp(0.42rem, 2.25cqi, 0.72rem);
+    line-height: 1.8;
   }
 
-  .hero-mark {
-    top: 150px;
-    right: -170px;
+  .hero .hero-mark {
+    display: grid;
+    top: 86px;
+    right: -52px;
+    opacity: 0.08;
   }
 
   .mark-ring {
-    width: 380px;
+    width: 220px;
   }
 
   .company-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .company-strip > div {
-    min-height: 92px;
-    padding: 17px 20px;
-    border-right: 0;
+    min-height: 88px;
+    padding: 15px 18px;
+    border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
 
-  .company-strip > div:nth-child(2) {
-    border-bottom: 1px solid var(--line);
+  .company-strip > div:nth-child(even) {
+    border-right: 0;
+  }
+
+  .company-strip > div:nth-child(n + 3) {
+    border-bottom: 0;
+  }
+
+  .company-strip strong {
+    margin-top: 6px;
+    font-size: 0.76rem;
+  }
+
+  .company-strip small {
+    font-size: 0.64rem;
   }
 
   .company-strip > div:last-child {
@@ -460,9 +498,16 @@ h1 {
   }
 
   .site-footer {
-    display: grid;
-    justify-content: start;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 18px;
+    font-size: 0.64rem;
+  }
+
+  .site-footer p:last-child {
+    text-align: right;
   }
 }
 
