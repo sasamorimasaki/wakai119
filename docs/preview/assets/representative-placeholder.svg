@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1120" viewBox="0 0 900 1120" role="img" aria-labelledby="title desc">
+  <title id="title">代表写真 仮</title>
+  <desc id="desc">代表写真用の仮プレースホルダー</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7efe4"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f47c20"/>
+      <stop offset="1" stop-color="#1f7a4d"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1120" fill="url(#bg)"/>
+  <rect x="42" y="42" width="816" height="1036" rx="18" fill="none" stroke="#ded4c8" stroke-width="4"/>
+  <circle cx="450" cy="410" r="128" fill="#ded4c8"/>
+  <path d="M210 840c42-180 170-260 240-260s198 80 240 260" fill="#ded4c8"/>
+  <path d="M264 186c72-76 186-100 282-58 76 33 126 98 144 172" fill="none" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+  <text x="450" y="980" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#68635e">代表写真</text>
+  <text x="450" y="1032" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#68635e">Temporary Photo</text>
+</svg>
