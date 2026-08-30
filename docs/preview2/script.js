@@ -2,26 +2,17 @@ const navToggle = document.getElementById('nav-toggle');
 const siteHeader = document.querySelector('.site-header');
 const menuButton = document.querySelector('.menu-button');
 const isHomePage = document.body.classList.contains('home-page');
+const homeShell = document.querySelector('.home-shell');
 
-const stabilizeMobileHome = () => {
-  if (!isHomePage || !window.matchMedia('(max-width: 600px)').matches) return;
-
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-
-  const resetScrollPosition = () => {
-    window.scrollTo(0, 0);
-    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
-  };
-
-  resetScrollPosition();
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(resetScrollPosition);
-  });
+const updateHomeViewportHeight = () => {
+  if (!homeShell) return;
+  const viewportHeight = window.visualViewport?.height || window.innerHeight;
+  document.documentElement.style.setProperty('--home-viewport-height', `${Math.floor(viewportHeight)}px`);
 };
 
-stabilizeMobileHome();
-window.addEventListener('pageshow', stabilizeMobileHome);
-window.addEventListener('load', stabilizeMobileHome, { once: true });
+updateHomeViewportHeight();
+window.addEventListener('resize', updateHomeViewportHeight);
+window.visualViewport?.addEventListener('resize', updateHomeViewportHeight);
 
 menuButton?.addEventListener('keydown', (event) => {
   if ((event.key === 'Enter' || event.key === ' ') && navToggle) {
@@ -101,10 +92,28 @@ const requestBackToTopUpdate = () => {
 };
 
 backToTop.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: reducedMotion.matches ? 'auto' : 'smooth'
-  });
+  const startPosition = window.scrollY;
+  if (startPosition <= 0) return;
+
+  if (reducedMotion.matches) {
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  const duration = Math.min(900, Math.max(620, startPosition * 0.35));
+  const startTime = performance.now();
+
+  const animateScroll = (currentTime) => {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    const easedProgress = progress < 0.5
+      ? 4 * progress ** 3
+      : 1 - ((-2 * progress + 2) ** 3) / 2;
+
+    window.scrollTo(0, Math.round(startPosition * (1 - easedProgress)));
+    if (progress < 1) window.requestAnimationFrame(animateScroll);
+  };
+
+  window.requestAnimationFrame(animateScroll);
 });
 
 window.addEventListener('scroll', requestBackToTopUpdate, { passive: true });
