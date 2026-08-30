@@ -95,22 +95,26 @@ backToTop.addEventListener('click', () => {
   const startPosition = window.scrollY;
   if (startPosition <= 0) return;
 
+  document.documentElement.classList.add('is-back-to-top-scrolling');
+
   if (reducedMotion.matches) {
     window.scrollTo(0, 0);
+    document.documentElement.classList.remove('is-back-to-top-scrolling');
     return;
   }
 
-  const duration = Math.min(900, Math.max(620, startPosition * 0.35));
+  const duration = Math.min(800, Math.max(540, startPosition * 0.3));
   const startTime = performance.now();
 
   const animateScroll = (currentTime) => {
     const progress = Math.min((currentTime - startTime) / duration, 1);
-    const easedProgress = progress < 0.5
-      ? 4 * progress ** 3
-      : 1 - ((-2 * progress + 2) ** 3) / 2;
 
-    window.scrollTo(0, Math.round(startPosition * (1 - easedProgress)));
-    if (progress < 1) window.requestAnimationFrame(animateScroll);
+    window.scrollTo(0, Math.round(startPosition * (1 - progress)));
+    if (progress < 1) {
+      window.requestAnimationFrame(animateScroll);
+    } else {
+      document.documentElement.classList.remove('is-back-to-top-scrolling');
+    }
   };
 
   window.requestAnimationFrame(animateScroll);

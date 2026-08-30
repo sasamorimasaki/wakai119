@@ -20,6 +20,7 @@ html {
     radial-gradient(circle at 4% 96%, rgba(31,102,73,.1), transparent 30rem),
     var(--paper);
 }
+html.is-back-to-top-scrolling { scroll-behavior: auto; }
 body {
   width: 100vw;
   margin: 0;
