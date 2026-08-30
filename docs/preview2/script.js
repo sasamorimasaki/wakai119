@@ -92,32 +92,10 @@ const requestBackToTopUpdate = () => {
 };
 
 backToTop.addEventListener('click', () => {
-  const startPosition = window.scrollY;
-  if (startPosition <= 0) return;
-
-  document.documentElement.classList.add('is-back-to-top-scrolling');
-
-  if (reducedMotion.matches) {
-    window.scrollTo(0, 0);
-    document.documentElement.classList.remove('is-back-to-top-scrolling');
-    return;
-  }
-
-  const duration = Math.min(800, Math.max(540, startPosition * 0.3));
-  const startTime = performance.now();
-
-  const animateScroll = (currentTime) => {
-    const progress = Math.min((currentTime - startTime) / duration, 1);
-
-    window.scrollTo(0, Math.round(startPosition * (1 - progress)));
-    if (progress < 1) {
-      window.requestAnimationFrame(animateScroll);
-    } else {
-      document.documentElement.classList.remove('is-back-to-top-scrolling');
-    }
-  };
-
-  window.requestAnimationFrame(animateScroll);
+  window.scrollTo({
+    top: 0,
+    behavior: reducedMotion.matches ? 'auto' : 'smooth'
+  });
 });
 
 window.addEventListener('scroll', requestBackToTopUpdate, { passive: true });
