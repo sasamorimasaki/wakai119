@@ -1,6 +1,27 @@
 const navToggle = document.getElementById('nav-toggle');
 const siteHeader = document.querySelector('.site-header');
 const menuButton = document.querySelector('.menu-button');
+const isHomePage = document.body.classList.contains('home-page');
+
+const stabilizeMobileHome = () => {
+  if (!isHomePage || !window.matchMedia('(max-width: 600px)').matches) return;
+
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  const resetScrollPosition = () => {
+    window.scrollTo(0, 0);
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+  };
+
+  resetScrollPosition();
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(resetScrollPosition);
+  });
+};
+
+stabilizeMobileHome();
+window.addEventListener('pageshow', stabilizeMobileHome);
+window.addEventListener('load', stabilizeMobileHome, { once: true });
 
 menuButton?.addEventListener('keydown', (event) => {
   if ((event.key === 'Enter' || event.key === ' ') && navToggle) {
@@ -63,7 +84,7 @@ const updateBackToTop = () => {
   const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
   const standardThreshold = Math.max(280, window.innerHeight * 0.45);
   const threshold = Math.min(standardThreshold, maxScroll * 0.5);
-  const isVisible = mobileViewport.matches && window.scrollY > threshold;
+  const isVisible = !isHomePage && mobileViewport.matches && window.scrollY > threshold;
   const footerOffset = siteFooter
     ? Math.min(siteFooter.offsetHeight, Math.max(0, window.innerHeight - siteFooter.getBoundingClientRect().top))
     : 0;
