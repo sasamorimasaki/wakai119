@@ -12,14 +12,20 @@
 }
 
 * { box-sizing: border-box; }
-html { min-width: 320px; scroll-behavior: smooth; }
-body {
-  margin: 0;
-  color: var(--ink);
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
   background:
     radial-gradient(circle at 96% 4%, rgba(239,119,38,.12), transparent 28rem),
     radial-gradient(circle at 4% 96%, rgba(31,102,73,.1), transparent 30rem),
     var(--paper);
+}
+body {
+  width: 100vw;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--ink);
+  background: transparent;
   font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
