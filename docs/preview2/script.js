@@ -1,6 +1,17 @@
 const navToggle = document.getElementById('nav-toggle');
 const siteHeader = document.querySelector('.site-header');
 const menuButton = document.querySelector('.menu-button');
+const homeShell = document.querySelector('.home-shell');
+
+const updateHomeViewportHeight = () => {
+  if (!homeShell) return;
+  const viewportHeight = window.visualViewport?.height || window.innerHeight;
+  document.documentElement.style.setProperty('--home-viewport-height', `${Math.floor(viewportHeight)}px`);
+};
+
+updateHomeViewportHeight();
+window.addEventListener('resize', updateHomeViewportHeight);
+window.visualViewport?.addEventListener('resize', updateHomeViewportHeight);
 
 menuButton?.addEventListener('keydown', (event) => {
   if ((event.key === 'Enter' || event.key === ' ') && navToggle) {
@@ -45,3 +56,47 @@ document.querySelectorAll('[data-email-contact]').forEach((link) => {
     window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 });
+
+const backToTop = document.createElement('button');
+backToTop.type = 'button';
+backToTop.className = 'back-to-top';
+backToTop.setAttribute('aria-label', 'ページ上部へ戻る');
+backToTop.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="m9 19 7-7 7 7"/></svg>';
+backToTop.tabIndex = -1;
+document.body.append(backToTop);
+
+const mobileViewport = window.matchMedia('(max-width: 600px)');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const siteFooter = document.querySelector('.site-footer');
+let backToTopTicking = false;
+
+const updateBackToTop = () => {
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const standardThreshold = Math.max(280, window.innerHeight * 0.45);
+  const threshold = Math.min(standardThreshold, maxScroll * 0.5);
+  const isVisible = mobileViewport.matches && window.scrollY > threshold;
+  const footerOffset = siteFooter
+    ? Math.min(siteFooter.offsetHeight, Math.max(0, window.innerHeight - siteFooter.getBoundingClientRect().top))
+    : 0;
+  backToTop.classList.toggle('is-visible', isVisible);
+  backToTop.tabIndex = isVisible ? 0 : -1;
+  backToTop.style.setProperty('--footer-offset', `${footerOffset}px`);
+  backToTopTicking = false;
+};
+
+const requestBackToTopUpdate = () => {
+  if (backToTopTicking) return;
+  backToTopTicking = true;
+  window.requestAnimationFrame(updateBackToTop);
+};
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: reducedMotion.matches ? 'auto' : 'smooth'
+  });
+});
+
+window.addEventListener('scroll', requestBackToTopUpdate, { passive: true });
+window.addEventListener('resize', requestBackToTopUpdate);
+updateBackToTop();
