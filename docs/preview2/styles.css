@@ -504,24 +504,23 @@ button, input { font: inherit; }
 
 @media (max-width: 600px) {
   body.home-page {
-    height: var(--home-viewport-height, 100svh);
-    min-height: 0;
-    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
   }
   .site-shell,
   .site-shell.home-shell {
     width: 100%;
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100svh;
     margin: 0;
     border: 0;
     box-shadow: none;
   }
   .site-shell.home-shell {
     grid-template-rows: auto auto minmax(0, 1fr) auto;
-    height: 100%;
-    min-height: 0;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
   }
   .site-shell:not(.home-shell) main { padding-bottom: 48px; }
   .site-header { min-height: 82px; padding: 14px 18px 16px; }
@@ -605,7 +604,7 @@ button, input { font: inherit; }
   .hero-mark img { width: 220px; }
   .eyebrow { margin-bottom: 20px; font-size: .65rem; }
   .eyebrow::before { width: 38px; }
-  .home-hero h1 { font-size: clamp(1.7rem, min(8.5vw, 5.8dvh), 2.5rem); line-height: 1.48; }
+  .home-hero h1 { font-size: clamp(1.7rem, min(8.5vw, 5.8svh), 2.5rem); line-height: 1.48; }
   .hero-lead { margin-top: 20px; font-size: clamp(.54rem, 2.65cqi, .76rem); line-height: 1.85; }
   .button { justify-content: space-between; }
   .page-heading, .content-wrap { padding-inline: 22px; }
@@ -647,16 +646,16 @@ button, input { font: inherit; }
   .site-footer { align-items: center; gap: 12px; padding: 16px 18px; font-size: .64rem; }
   .site-footer p:last-child { text-align: right; }
   .home-shell .site-header {
-    min-height: clamp(64px, 9.7dvh, 82px);
-    padding-block: clamp(8px, 1.65dvh, 14px);
+    min-height: clamp(64px, 9.7svh, 82px);
+    padding-block: clamp(8px, 1.65svh, 14px);
   }
-  .home-shell .mobile-quick-nav a { min-height: clamp(40px, 5.7dvh, 48px); }
-  .home-shell .home-hero { padding-block: clamp(20px, 5.7dvh, 48px); }
+  .home-shell .mobile-quick-nav a { min-height: clamp(40px, 5.7svh, 48px); }
+  .home-shell .home-hero { padding-block: clamp(20px, 5.7svh, 48px); }
   .home-shell .company-strip > div {
-    min-height: clamp(68px, 10.4dvh, 88px);
-    padding-block: clamp(10px, 1.8dvh, 15px);
+    min-height: clamp(68px, 10.4svh, 88px);
+    padding-block: clamp(10px, 1.8svh, 15px);
   }
-  .home-shell .site-footer { padding-block: clamp(10px, 1.9dvh, 16px); }
+  .home-shell .site-footer { padding-block: clamp(10px, 1.9svh, 16px); }
 }
 
 @media (prefers-reduced-motion: no-preference) {

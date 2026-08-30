@@ -1,17 +1,6 @@
 const navToggle = document.getElementById('nav-toggle');
 const siteHeader = document.querySelector('.site-header');
 const menuButton = document.querySelector('.menu-button');
-const homeShell = document.querySelector('.home-shell');
-
-const updateHomeViewportHeight = () => {
-  if (!homeShell) return;
-  const viewportHeight = window.visualViewport?.height || window.innerHeight;
-  document.documentElement.style.setProperty('--home-viewport-height', `${Math.floor(viewportHeight)}px`);
-};
-
-updateHomeViewportHeight();
-window.addEventListener('resize', updateHomeViewportHeight);
-window.visualViewport?.addEventListener('resize', updateHomeViewportHeight);
 
 menuButton?.addEventListener('keydown', (event) => {
   if ((event.key === 'Enter' || event.key === ' ') && navToggle) {
