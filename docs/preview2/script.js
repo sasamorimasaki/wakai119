@@ -67,7 +67,6 @@ backToTop.tabIndex = -1;
 document.body.append(backToTop);
 
 const mobileViewport = window.matchMedia('(max-width: 600px)');
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const siteFooter = document.querySelector('.site-footer');
 let backToTopTicking = false;
 
@@ -94,7 +93,7 @@ const requestBackToTopUpdate = () => {
 backToTop.addEventListener('click', () => {
   window.scrollTo({
     top: 0,
-    behavior: reducedMotion.matches ? 'auto' : 'smooth'
+    behavior: 'smooth'
   });
 });
 
