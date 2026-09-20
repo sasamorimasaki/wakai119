@@ -351,7 +351,8 @@ button, input { font: inherit; }
 .company-map iframe { display: block; width: 100%; height: 100%; min-height: 502px; border: 0; filter: saturate(.72) sepia(.08); }
 
 .contact-layout { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(35px, 7vw, 90px); align-items: start; }
-.contact-message h2 { margin: 0 0 22px; color: var(--green-dark); font-family: "Zen Old Mincho", serif; font-size: clamp(1.65rem, 3vw, 2.7rem); line-height: 1.55; }
+.contact-message { min-width: 0; container-type: inline-size; }
+.contact-message h2 { margin: 0 0 22px; color: var(--green-dark); font-family: "Zen Old Mincho", serif; font-size: min(clamp(1.65rem, 3vw, 2.7rem), 6.6cqi); line-height: 1.55; white-space: nowrap; }
 .contact-message p { margin: 0; color: var(--muted); line-height: 2; }
 .contact-panel { padding: clamp(28px, 4vw, 46px); background: var(--green-dark); color: var(--paper-light); }
 .contact-panel h2 { margin: 0 0 14px; font-family: "Zen Old Mincho", serif; font-size: 1.45rem; }
@@ -503,7 +504,10 @@ button, input { font: inherit; }
   .company-map iframe { min-height: 382px; }
 }
 
+.address-mobile-break { display: none; }
+
 @media (max-width: 600px) {
+  .address-mobile-break { display: inline; }
   html,
   body { overscroll-behavior-y: none; }
   body.home-page {
